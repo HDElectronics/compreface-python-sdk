@@ -29,7 +29,7 @@ from tests.client.const_config import DOMAIN, PORT, RECOGNIZE_API_KEY, FILE_PATH
 url: str = DOMAIN + ":" + PORT + RECOGNIZE_CRUD_API
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_get():
     httpretty.register_uri(
         httpretty.GET,
@@ -45,7 +45,7 @@ def test_get():
     assert response == test_response
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_delete():
     httpretty.register_uri(
         httpretty.DELETE,
@@ -62,7 +62,7 @@ def test_delete():
     assert response == test_response
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_post():
 
     httpretty.register_uri(
@@ -88,7 +88,7 @@ def test_post():
     assert response == test_response
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_post_incorrect_response():
     httpretty.register_uri(
         httpretty.POST,
@@ -120,7 +120,7 @@ def test_post_incorrect_response():
     assert response != test_response
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_get_with_empty_list():
     httpretty.register_uri(
         httpretty.GET,
@@ -142,7 +142,7 @@ def test_get_with_empty_list():
     assert response != test_response
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_delete_incorrect_response():
     httpretty.register_uri(
         httpretty.DELETE,

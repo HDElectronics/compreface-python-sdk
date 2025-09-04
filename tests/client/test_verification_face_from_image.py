@@ -25,7 +25,7 @@ from tests.client.const_config import DOMAIN, PORT, RECOGNIZE_API_KEY, FILE_PATH
 url: str = DOMAIN + ":" + PORT + RECOGNIZE_CRUD_API + '/' + IMAGE_ID + '/verify'
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_post():
     httpretty.register_uri(
         httpretty.POST,
@@ -48,7 +48,7 @@ def test_post():
     assert response == test_response
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_post_other_response():
     httpretty.register_uri(
         httpretty.POST,

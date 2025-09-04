@@ -28,7 +28,7 @@ from tests.client.const_config import DOMAIN, PORT, RECOGNIZE_API_KEY, FILE_PATH
 url: str = DOMAIN + ":" + PORT + RECOGNIZE_API
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_recognize():
     httpretty.register_uri(
         httpretty.POST,
@@ -50,7 +50,7 @@ def test_recognize():
     assert response == test_response
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_recognize_other_response():
     httpretty.register_uri(
         httpretty.POST,

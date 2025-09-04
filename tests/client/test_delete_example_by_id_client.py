@@ -24,7 +24,7 @@ from tests.client.const_config import DOMAIN, PORT, RECOGNIZE_API_KEY, IMAGE_ID
 url: str = DOMAIN + ":" + PORT + RECOGNIZE_CRUD_API + '/' + IMAGE_ID
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_delete():
     httpretty.register_uri(
         httpretty.DELETE,
@@ -41,7 +41,7 @@ def test_delete():
     assert response == test_response
 
 
-@httpretty.activate(verbose=True, allow_net_connect=False)
+@httpretty.activate(verbose=True, allow_net_connect=True)
 def test_delete_other_response():
     httpretty.register_uri(
         httpretty.DELETE,
